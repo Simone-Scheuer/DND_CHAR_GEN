@@ -1,0 +1,41 @@
+from dnd_data import dnd_classes,dnd_races,dnd_class_descriptions,dnd_alignments
+import random
+import textwrap
+
+
+def main():
+  while True:
+    input("\ngenerate a random character\n")
+    generate_char()
+
+
+def generate_char():
+  chosen_class = random.choice(list(dnd_classes.keys()))
+  chosen_subclass = random.choice(dnd_classes[chosen_class])
+  chosen_race = random.choice(list(dnd_races.keys()))
+  race_desc = (dnd_races[chosen_race])
+  class_desc = (dnd_class_descriptions[chosen_class])
+  alignment = random.choice(list(dnd_alignments.keys()))
+  alignment_desc = (dnd_alignments[alignment])
+  wrapped_race_desc = wrap_text(race_desc, width=60)
+  wrapped_class_desc = wrap_text(class_desc, width=60)
+  wrapped_alignment_desc = wrap_text(alignment_desc, width=60)
+  print(underline_text("CHARACTER:"))
+  print(f"{alignment} {chosen_race} {chosen_subclass} {chosen_class}")
+  print(underline_text("CLASS DESCRIPTION"))
+  print(f"{wrapped_class_desc}")
+  print(underline_text("RACE DESCRIPTION"))
+  print(f"{wrapped_race_desc}")
+  print(underline_text("ALIGNMENT DESCRIPTION"))
+  print(f"{alignment} {wrapped_alignment_desc}")
+
+  
+def wrap_text(text, width=60):
+  return textwrap.fill(text, width)
+
+def underline_text(text):
+  return f"\033[4m{text}\033[0m"
+
+
+if __name__ == '__main__':
+   main()
