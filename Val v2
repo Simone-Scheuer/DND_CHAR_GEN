@@ -1,0 +1,22 @@
+def validate_integer(prompt, min_value=None, max_value=None):
+  """
+  Prompts the user for input and validates if it is an integer within the optional min and max range.
+
+  Parameters:
+  - prompt: The message displayed to the user.
+  - min_value: The minimum acceptable value (inclusive). If None, no minimum is enforced.
+  - max_value: The maximum acceptable value (inclusive). If None, no maximum is enforced.
+
+  Returns:
+  - The validated integer input from the user.
+  """
+  while True:
+      user_input = input(prompt)
+      try:
+          value = int(user_input)
+          if (min_value is not None and value < min_value) or (max_value is not None and value > max_value):
+              print(f"Please enter a value between {min_value} and {max_value}.")
+          else:
+              return value
+      except ValueError:
+          print("Invalid input. Please enter a valid integer.")
