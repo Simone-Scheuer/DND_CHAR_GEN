@@ -1,0 +1,94 @@
+import random
+vowels = 'aeiou'
+consonants = "bcdfghjklmnpqrstvwxyz'"
+
+def final_name():
+    name = generate_name()
+    title = generate_title()
+    nickname = generate_nickname()
+    return (f"{name} {nickname} '{title}' ")
+
+def generate_name(min_length=2, max_length=7):
+  name_length = random.randint(min_length, max_length)
+  name = ''
+  for i in range(name_length):
+      if i % 2 == 0:
+          # Even index: add a consonant
+          name += random.choice(consonants)
+      else:
+          # Odd index: add a vowel
+          name += random.choice(vowels)
+  return name.capitalize()
+
+
+def generate_nickname():
+  fantasy_last_names = [
+    "Breaker", "Forge", "Steel", "Son", "Storm",
+    "Fire", "Shadow", "Blade", "Thorn", "Wolf",
+    "Fang", "Heart", "Wind", "Moon", "Star",
+    "Sky", "Flame", "Stone", "Iron", "Wood",
+    "River", "Night", "Light", "Dark", "Gold",
+    "Silver", "Rune", "Spell", "Arrow", "Frost",
+    "Gloom", "Spear", "Gale", "Peak", "Veil",
+    "Mist", "Glade", "Bloom", "Crest", "Fall",
+    "Shade", "Whisper", "Sword", "Shield", "Hall",
+    "Song", "Fury", "Bane", "Cloud", "Field",
+    "Hawk", "Mountain", "Ocean", "Pine", "Ridge",
+    "Vale", "Wing", "Bard", "Charm", "Dawn",
+    "Echo", "Grove", "Heir", "Jewel", "Kite",
+    "Lore", "Meadow", "Nova", "Orchid", "Petal",
+    "Quartz", "Raven", "Sage", "Tide", "Vortex",
+    "Willow", "Yarn", "Zephyr",
+    "Cinder", "Brook", "Bolt", "Crag", "Fern",
+    "Hearth", "Ivy", "Lark", "Marsh", "Nectar",
+    "Obsidian", "Prism", "Quill", "Reed", "Sable",
+    "Thicket", "Umber", "Vale", "Wisp", "Zenith",
+    "Abyss", "Brine", "Canopy", "Drift", "Ember",
+    "Fallow", "Glint", "Harbor", "Ink", "Jasper",
+    "Kernel", "Labyrinth", "Mirth", "Nebula", "Oasis",
+    "Pulse", "Quarry", "Realm", "Surge", "Torch",
+    "Undine", "Vivid", "Wander", "Xylem", "Yield",
+    "Zen", "Arcane", "Blight", "Cipher", "Dusk",
+    "Eclipse", "Fable", "Glyph", "Horizon", "Iris",
+    "Journey", "Knoll", "Lumin", "Myth", "Nimbus",
+    "Oracle", "Pinnacle", "Quest", "Runic",
+    "Tempest", "Utopia", "Vertex", "Wraith", "Expanse",
+    "Yonder", "Zest", "Aurora", "Boreal", "Chalice",
+    "Delve", "Enigma", "Frostbite", "Gale", "Halo",
+    "Inferno", "Lunar",
+    "Mirage", "Nexus", "Omen", "Phantom", "Ripple",
+    "Specter", "Trance", "Unity", "Vanguard", "Whirl",
+    "Exile", "Yawl", "Zeal"
+  ]
+  nickname = (f"{random.choice(fantasy_last_names)}-{random.choice(fantasy_last_names)}")
+  return nickname
+
+def generate_title():
+  articles = ["The"]
+  nouns = [
+      "Sword", "Heart", "Shadow", "Light", "Star", "Moon", "Flame", "Eye",
+      "King", "Queen", "Throne", "Crown", "Wolf", "Dragon", "Phoenix", "Rose",
+      "Storm", "Mountain", "River", "Sea", "Wind", "Fire",
+      "Night", "Dawn", "Dusk", "One", "Champion", "Hero","Sage", "Warrior",
+      "Mage", "Priestess", "Guardian","Butcher","Bastard","Warden"
+  ]
+  adjectives = [
+      "Eternal", "Forgotten", "Lost", "Ancient", "Dark", "Golden", "Silver",
+      "Hidden", "Invisible", "Mystic", "Silent", "Bright", "Slumbering", 
+      "Whispering", "Dreaming", "Sorrowful", "Joyful", "Furious", 
+      "Chaotic", "Wicked", "Darkest", "Lightest", "Last", "First",
+      "Fallen", "Risen", "Chosen", "Taken", "Crimson", "Stormbound",
+    "Embered", "Luminous", "Twilight", "Dawnlit", "Celestial","Ivory",
+    "Red","Gray","Black"
+  ]
+  article = random.choice(articles)
+  noun = random.choice(nouns)
+  adjective = random.choice(adjectives)
+
+  title = (f"{article} {adjective} {noun}")
+  return title
+
+
+
+
+final_name()
